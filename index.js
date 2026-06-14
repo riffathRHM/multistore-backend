@@ -1,6 +1,8 @@
 //import the express module
 const express = require('express');
 const authRouter = require('./routes/auth.js')
+const bannerRouter = require('./routes/banner.js')
+const categoryRouter = require('./routes/category.js')
 
 const mongoose = require('mongoose');
 
@@ -16,6 +18,8 @@ const DB = 'mongodb+srv://riffathemedia_db_user:7013040@cluster0.x1rfcho.mongodb
 //middleware -to rgister routes or to  mount routes
 app.use(express.json());
 app.use(authRouter);
+app.use(bannerRouter);
+app.use(categoryRouter);
 
 mongoose.connect(DB).then(()=> {
     console.log('mongodb Connected')
