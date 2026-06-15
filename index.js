@@ -3,6 +3,7 @@ const express = require('express');
 const authRouter = require('./routes/auth.js')
 const bannerRouter = require('./routes/banner.js')
 const categoryRouter = require('./routes/category.js')
+const subcategoryRouter = require('./routes/sub_category.js')
 
 const mongoose = require('mongoose');
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(authRouter);
 app.use(bannerRouter);
 app.use(categoryRouter);
+app.use(subcategoryRouter);
 
 mongoose.connect(DB).then(()=> {
     console.log('mongodb Connected')

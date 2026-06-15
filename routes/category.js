@@ -10,7 +10,18 @@ categoryRouter.post("/api/categories", async (req, res) => {
         await category.save();
         res.status(201).json(category);
     }catch (e) {
-        res.status(400).json({message: e.message});
+        res.status(400).json({error: e.message});
     }
 });
+
+//get all categories API
+categoryRouter.get("/api/categories",async (req,res) => {
+    try{
+         const catogories = await Category.find();
+         res.status(200).json({catogories});
+    } catch (e){
+         res.status(500).json({error:e.message});
+    }
+});
+
 module.exports = categoryRouter;
